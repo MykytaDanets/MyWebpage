@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+        }
+        header {
+            background-color: #00665a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav {
+            background-color: #009688;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #009688;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
+    <script>
+        function changeBackgroundColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            document.body.style.backgroundColor = color;
+        }
+        
+        function updateGreeting() {
+            const greetingElement = document.getElementById("greeting");
+            const hour = new Date().getHours();
+            let greeting;
+            if (hour < 12) {
+                greeting = "Good Morning!";
+            } else if (hour < 18) {
+                greeting = "Good Afternoon!";
+            } else {
+                greeting = "Good Evening!";
+            }
+            greetingElement.textContent = greeting;
+        }
+        
+        window.onload = updateGreeting;
+    </script>
+</head>
+<body>
+    <header>
+        My Website
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    <main>
+        <h1 id="greeting">Welcome to My Website</h1>
+        <p>This is a simple homepage layout with a header, navigation menu, main content, and a footer.</p>
+        <button onclick="changeBackgroundColor()">Change Background Color</button>
+    </main>
+    <footer>
+        &copy; 2025 My Website. All rights reserved.
+    </footer>
+</body>
+</html>
